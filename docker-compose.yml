@@ -1,0 +1,19 @@
+version: '3.9'
+
+networks:
+  ubuntud:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.40.0.0/16
+          gateway: 172.40.0.1
+
+services:
+  host: 
+    build: .
+    networks:
+      - ubuntud
+    privileged: true
+    mem_swappiness: 0  
+    volumes: 
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro

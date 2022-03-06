@@ -17,3 +17,4 @@ services:
     mem_swappiness: 0  
     volumes: 
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
+      - ./fast-disks:/run/udev
